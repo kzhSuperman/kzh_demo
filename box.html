@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            display: flex;
+            width: 300px;
+            height: 30px;
+            margin: 0 auto;
+        }
+        li{
+            list-style: none;
+            border: 1px solid #eee;
+            height: 20px;
+            margin-left: 20px;
+        }
+        #box{
+            background-color: black; width: 100px; height: 100px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ul">
+        <li onclick="c_width()">变宽</li>
+        <li onclick="c_height()">变高</li>
+        <li onclick="c_color()">变色</li>
+        <li onclick="c_hide()">隐藏</li>
+        <li onclick="c_reset()">重置</li>
+    </ul>
+    <div id="box">
+
+    </div>
+    
+    <script>
+        var c_b = document.getElementById('box')
+        function c_width(){
+            c_b.style.width = '200px'
+        }
+        function c_height(){
+            c_b.style.height = '200px'
+        }
+        function c_color(){
+            c_b.style.background = 'skyblue'
+        }
+        function c_hide(){
+            c_b.style.visibility = 'hidden'
+        }
+        function c_width(){
+            c_b.style.width = '200px'
+        }
+        function c_reset(){
+            c_b.style.cssText ="background-color: black; width: 100px; height: 100px;";
+        }
+    </script>
+</body>
+</html>
