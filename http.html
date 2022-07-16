@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #change,#tb {margin:0;padding:0;}
+        #change li{list-style-type:none;}
+        #tb tr th a{text-decoration: none;color:green;}
+        #change,#tb {width:500px;height:25px;margin:0 auto;clear:both;}
+        /*背景样式设置*/
+        
+        #change li {float:left;margin:10px 10px 10px 0;width:5px;height:5px;border-width:5px;border-style: solid;}
+        #red {border-color: red;background:red;}
+        #green {border:green ;background:green;}
+        #black {border:black;background:black;}
+        #change li.current{background:#fff !important;}
+        
+        /*标题样式设置*/
+        #tb {border-collapse:collapse;}
+        #tb tr th {border:1px green solid;font-size:11px;}
+        #tb tr th a:hover{text-decoration: underline;}
+    </style>
+</head>
+<body id="bd">
+    <ul id="change">
+        <li id="red" title="红色"></li>
+        <li id="green" name="current" title="绿色"></li>
+        <li id="black" title="黑色"></li>
+    </ul>
+    <table id="tb">
+        <tr>
+            <th><a href="">新闻</a></th>
+            <th><a href="">娱乐</a></th>
+            <th><a href="">体育</a></th>
+            <th><a href="">电影</a></th>
+            <th><a href="">音乐</a></th>
+            <th><a href="">旅游</a></th>
+        </tr>
+    </table>
+    <script>
+        function changeBg(el,attr,value){
+           el.style[attr] = value
+        }
+        window.onload = function(){
+            var oli = document.getElementsByTagName('li');
+            var obd = document.getElementById('bd');
+            var otb = document.getElementById('tb');
+            var oatt = ['background'];
+            var obdbg = ['#ffoo76','#718000','#cccccc']
+            var otbbg = ['red','green','black']
+            for ( var i =0;i<oli.length;i++){
+                oli[i].index = i;
+                oli[i].onclick = function() {
+                    for(var x in oli) oli[x].className = '';
+                    this.className = 'current';
+                    if(this.index == oli.length-1){
+                        changeBg(obd,oatt[0],obdbg[2]);
+                        changeBg(otb,oatt[0],btbbg[2]);
+                    }
+                    else{
+                        changeBg(obd,oatt[0],obdbg[this.index]);
+                        changeBg(obd,oatt[0],btbbg[this.index]);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
